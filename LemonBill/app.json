@@ -1,0 +1,31 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/chart/chart"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#10AEFF",
+        "navigationBarTitleText": "首页",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "selectedColor": "#1296db",
+
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "img/home.png",
+                "selectedIconPath": "img/home_p.png",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/chart/chart",
+                "iconPath": "img/chart.png",
+                "selectedIconPath": "img/chart_p.png",
+                "text": "统计"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json"
+}

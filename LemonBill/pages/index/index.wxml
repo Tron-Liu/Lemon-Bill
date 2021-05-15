@@ -1,0 +1,97 @@
+<view class="bg_color">
+  <view class = "myDate">
+    <image class="icon_money"></image>
+    <picker mode="date" end="{{time_end}}" value="selectDate" fields="day" bindchange="bindDateChange">
+      <text wx:if="{{selectDate}}">{{selectDate}}</text>
+    </picker>
+  </view>
+  <view class="layout_horizontal">
+    <text>{{expend}}</text>
+    <text>{{income}}</text>
+  </view>
+  <view class="layout_horizontal">
+    <text>支出</text>
+    <text>收入</text>
+  </view>
+</view>
+
+<view class="everyday_cost">
+  <view class="account">
+    <text>每日账单</text>
+  </view>
+
+  <view class="no_cost" wx:if="{{historyList.length == 0}}">今日还未消费</view>
+  <block wx:for="{{historyList}}">
+    <view class="history" hover-class="active" bindtap="bindBillClick" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd" data-id="{{item.BillNo}}">
+      <view class="expend_and_income">
+        <text wx:if="{{item.Flag == 1}}">支出</text>
+        <text wx:if="{{item.Flag == 0}}">收入</text>
+      </view>
+      <view class="money_and_time">
+        <view class="money">
+          <text>{{item.Money}}</text>
+        </view>
+        <view class="time">
+          <text>{{item.AddTime}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<!-- 添加按钮-->
+<image wx:if="{{passwordInputHidden}}" src="../../img/button.png" class="button_style" bindtap="showInput"></image>
+
+<!-- 软键盘 -->
+<action-sheet hidden="{{passwordInputHidden}}" bindchange="passwordInputHidden">
+
+<!-- 选择支出、收入、日期 -->
+<view class="select">
+    <view class="cost">
+        <view  bindtouchend="bindChooseExpend">
+          <text class="{{ischecked ? 'expend' : 'expend_false'}}">支出</text></view>
+        <view bindtouchend="bindChooseIncome">
+          <text class="{{ischecked ? 'income' : 'income_false'}}">收入</text></view>
+    </view>
+    <picker class="pdate" mode="date" end="{{time_end}}" value="keyborad_date" fields="day" bindchange="bindKeyboardDateChange">
+      <text class="wordColor">{{keyborad_date}}</text></picker>
+</view>
+
+<!-- 显示输入的金额 -->
+<view class="show_money">
+    <view >
+        <text>￥</text>
+    </view>
+    <view>
+      <text>{{money}}</text>
+    </view>
+</view>
+
+<!-- 消费类别 -->
+<view>
+    
+</view>
+
+ <!-- 键盘数字 -->
+<view class="keyboard">
+    <view class="number">
+        <view data-key="1" hover-class="active" hover-stay-time="100" bindtap="bindInputMoney">1</view>
+        <view data-key="2" hover-class="active" hover-stay-time="100" bindtap="bindInputMoney">2</view>
+        <view data-key="3" hover-class="active" hover-stay-time="100" bindtap="bindInputMoney">3</view>
+        <view data-key="4" hover-class="active" hover-stay-time="100" bindtap="bindInputMoney">4</view>
+        <view data-key="5" hover-class="active" hover-stay-time="100" bindtap="bindInputMoney">5</view>
+        <view data-key="6" hover-class="active" hover-stay-time="100" bindtap="bindInputMoney">6</view>
+        <view data-key="7" hover-class="active" hover-stay-time="100" bindtap="bindInputMoney">7</view>
+        <view data-key="8" hover-class="active" hover-stay-time="100" bindtap="bindInputMoney">8</view>
+        <view data-key="9" hover-class="active" hover-stay-time="100" bindtap="bindInputMoney">9</view>
+        <view data-key="0" hover-class="active" hover-stay-time="100" bindtap="bindInputMoney">0</view>
+        <view data-key="." hover-class="active" hover-stay-time="100" bindtap="bindInputMoney">.</view>
+    </view>
+    <view class="ctr-btn">
+        <view class="ctr-btn-item" hover-class="active" hover-stay-time="100" bindtap="bindClear">
+          <image class="iconfont" src="../../img/delete.png"></image>
+        </view>
+        <view class="ctr-btn-item" hover-class="active" hover-stay-time="100" bindtap="passwordInputHidden">确定</view>
+    </view>
+</view>
+</action-sheet>

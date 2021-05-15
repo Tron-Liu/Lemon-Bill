@@ -1,0 +1,212 @@
+/* pages/index/index1.wxss */
+.bg_color {
+  background-color: #10AEFF;
+}
+
+.myDate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.layout_horizontal{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.icon_money {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+/* 每日账单------> */
+.everyday_cost {
+  display: flex;
+  flex-direction: column;
+}
+
+.account {
+  text-align: center;
+  font-weight: bold;
+  color: #10AEFF;
+}
+
+.no_cost {
+  display: flex;
+  position: absolute;
+  top: 550rpx;
+  left: 280rpx;
+  font-weight: bold;
+}
+
+.history {
+  display: flex;
+  flex-direction: row;
+  padding-right: 35rpx;
+}
+
+.history .expend_and_income {
+  display: flex;
+  flex-grow: 2;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 0;
+}
+
+.history .money_and_time {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 5;
+  flex-basis: 0;
+  text-align: right;
+}
+
+.history .money {
+  display: flex;
+  flex-direction: column;
+  font-size: 45rpx;
+  font-weight: bolder;
+}
+
+.history .time {
+  display: flex;
+  flex-direction: column;
+  /* text-align: right; */
+  border-bottom: 1rpx solid #eee;
+  font-size: 30rpx;
+  color: #77787b;
+}
+/* <------每日账单 */
+
+
+/* 悬浮按钮------> */
+.button_style{
+  display: flex;
+  position: fixed;
+  bottom: 80rpx;
+  left: 550rpx;
+  height: 120rpx;
+  width: 120rpx;
+}
+/* <--------悬浮按钮 */
+
+
+/* 软键盘------> */
+.select {
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.select .wordColor{
+  color: #77787b;
+}
+
+.select .cost {
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+
+.select .cost .expend {
+  flex-grow: 1;
+  /* background-color: burlywood; */
+  font-weight: bold;
+  color: #10AEFF;
+}
+.select .cost .expend_false {
+  flex-grow: 1;
+  /* background-color: burlywood; */
+  color: #77787b;
+}
+
+.select .cost .income {
+  flex-grow: 1;
+  /* background-color: rgb(150, 222, 135); */
+  color: #77787b;
+}
+.select .cost .income_false {
+  flex-grow: 1;
+  /* background-color: rgb(150, 222, 135); */
+  font-weight: bold;
+  color: #10AEFF;
+}
+
+.select .pdate {
+  flex-grow: 1;
+  /* background-color: aqua; */
+}
+
+.show_money {
+  display: flex;
+  font-size: 70rpx;
+  font-weight: bold;
+}
+
+.keyboard {
+  width: 100%;
+  display: flex;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  margin-top: 50rpx;
+}
+
+.keyboard .number {
+  display: flex;
+  width: 570rpx;
+  flex-wrap: wrap;
+}
+
+.keyboard .number view {
+  width: 190rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+  font-size: 46rpx;
+  font-weight: bold;
+  box-sizing: border-box;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  color: #1296db;
+}
+
+.keyboard .number view:nth-last-of-type(2) {
+  width: 380rpx;
+}
+
+.keyboard .ctr-btn {
+  width: 180rpx;
+}
+
+.keyboard .ctr-btn view {
+  height: 240rpx;
+  line-height: 240rpx;
+  text-align: center;
+  box-sizing: border-box;
+  border-bottom: 1px solid #eee;
+}
+
+.keyboard .ctr-btn view:nth-child(1) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.keyboard .ctr-btn view .iconfont {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.keyboard .ctr-btn view:nth-child(2) {
+  font-size: 46rpx;
+  color: #1296db;
+  font-weight: bold;
+}
+
+.keyboard .active {
+  background-color: #e4e7ed;
+}
+/* <------软键盘 */
