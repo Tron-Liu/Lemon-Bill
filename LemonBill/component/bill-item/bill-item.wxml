@@ -1,0 +1,13 @@
+<!--component/bill_item.wxml-->
+<view class="bill-item">
+    <image class="bill-item-img" src="{{img}}"></image>
+    <view class="bill-item-info">
+        <view class="bill-item-label">{{label}}</view>
+        <view class="bill-item-detail">
+            <view class="bill-item-time">{{timeStamp}}</view>
+            <view class="separate">|</view>
+            <view class="bill-item-comment">{{comment}}</view>
+        </view>
+    </view>
+    <view class="bill-item-account">{{account}}</view>
+</view>

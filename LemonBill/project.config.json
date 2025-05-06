@@ -36,18 +36,16 @@
         "minifyWXSS": true
     },
     "compileType": "miniprogram",
-    "libVersion": "1.5.3",
+    "libVersion": "3.8.3",
     "appid": "wx11f1dd6284eb1df7",
     "projectname": "jyjz",
-    "condition": {
-        "search": {
-            "list": []
-        },
-        "conversation": {
-            "list": []
-        },
-        "miniprogram": {
-            "list": []
-        }
+    "condition": {},
+    "packOptions": {
+        "ignore": [],
+        "include": []
+    },
+    "editorSetting": {
+        "tabIndent": "insertSpaces",
+        "tabSize": 4
     }
 }

@@ -1,0 +1,23 @@
+/* component/bill-daily.wxss */
+:host {
+    width: 100%;
+}
+
+.bill-daily {
+    width: auto;
+    margin-left: 2vh;
+    margin-right: 2vh;
+    background-color: white;
+}
+
+.bill-daily-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bill-daily-title-total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

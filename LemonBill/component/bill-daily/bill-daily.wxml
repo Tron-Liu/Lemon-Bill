@@ -1,0 +1,16 @@
+<view class="bill-daily">
+    <!-- <view class="bill-daily-title">
+        <view>{{date}}</view>
+        <view class="bill-daily-title-total">
+            <view bind:tap="deleteItem">支 {{expense}}</view>
+            <view>收 {{incomde}}</view>
+        </view>
+    </view> -->
+    <!-- <view wx:for="{{billData}}" wx:key="index"> -->
+        <!-- <text>{{item.img}}</text> -->
+        <!-- <text>111</text> -->
+        <!-- <bill-item img="{{item.img}}" label="{{item.label}}" timeStamp="{{item.timeStamp}}" comment="{{item.comment}}" account="{{item.account}}"></bill-item>
+        <view class="deleteItem" bind:tap="deleteItem" data-key="{{index}}"></view> -->
+    <!-- </view> -->
+    <text>{{billData.account}}</text>
+</view>

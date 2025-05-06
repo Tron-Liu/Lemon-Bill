@@ -1,0 +1,29 @@
+/* component/bill_item.wxss */
+.bill-item {
+    width: auto;
+    height: auto;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    margin-right: 2vh;
+    margin-left: 2vh;
+}
+
+.bill-item-img {
+    width: 5vh;
+    height: 5vh;
+}
+
+.bill-item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.bill-item-detail {
+    display: flex;
+    flex-direction: row;
+}

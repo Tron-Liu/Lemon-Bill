@@ -1,7 +1,8 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/chart/chart"
+        "pages/chart/chart",
+        "pages/personal/personal"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -11,7 +12,6 @@
     },
     "tabBar": {
         "selectedColor": "#1296db",
-
         "list": [
             {
                 "pagePath": "pages/index/index",

@@ -3,7 +3,7 @@
  */
 function HttpGet(url, parm, response) {
   wx.showLoading({
-    title: '加载中',
+    title: "加载中",
   });
   wx.request({
     url: url,
@@ -13,13 +13,13 @@ function HttpGet(url, parm, response) {
     },
     success: function (res) {
       wx.hideLoading();
-      return typeof response == "function" && response(res.data)
+      return typeof response == "function" && response(res.data);
     },
     fail: function (res) {
       wx.hideLoading();
-      return typeof response == "function" && response(false)
-    }
-  })
+      return typeof response == "function" && response(false);
+    },
+  });
 }
 
 /**
@@ -27,24 +27,24 @@ function HttpGet(url, parm, response) {
  */
 function HttpPost(url, parm, response) {
   wx.showLoading({
-    title: '加载中',
+    title: "加载中",
   });
   wx.request({
     url: url,
     data: this.json2Form(parm),
     header: {
-      "Content-Type": "application/x-www-form-urlencoded"
+      "Content-Type": "application/x-www-form-urlencoded",
     },
     method: "POST",
     success: function (res) {
       wx.hideLoading();
-      return typeof response == "function" && response(res.data)
+      return typeof response == "function" && response(res.data);
     },
     fail: function (res) {
       wx.hideLoading();
-      return typeof response == "function" && response(false)
-    }
-  })
+      return typeof response == "function" && response(false);
+    },
+  });
 }
 
 /**
@@ -62,9 +62,9 @@ function isNull(data) {
  * 时间格式转化date对象->其他
  */
 function formatTime(date, format) {
-  var year = date.getFullYear()
-  var month = date.getMonth() + 1
-  var day = date.getDate()
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
   if (day < 10) {
     day = "0" + day;
   }
@@ -72,22 +72,23 @@ function formatTime(date, format) {
     month = "0" + month;
   }
 
-  var hour = date.getHours()
-  var minute = date.getMinutes()
-  var second = date.getSeconds()
+  var hour = date.getHours();
+  var minute = date.getMinutes();
+  var second = date.getSeconds();
 
   var week = date.getUTCDay();
 
-
   switch (format) {
     case "yyyy-MM-dd":
-      return [year, month, day].map(formatNumber).join('-');
+      return [year, month, day].map(formatNumber).join("-");
       break;
     case "yyyy年MM月dd日":
       return year + "年" + month + "月" + day + "日";
       break;
     case "yyyy年MM月dd日 hh:mm":
-      return year + "年" + month + "月" + day + "日" + " " + hour + ":" + minute;
+      return (
+        year + "年" + month + "月" + day + "日" + " " + hour + ":" + minute
+      );
       break;
     case "MM.dd":
       return month + "." + day;
@@ -99,10 +100,10 @@ function formatTime(date, format) {
       return year;
       break;
     case "hh:mm:ss":
-      return [hour, minute, second].map(formatNumber).join(':');
+      return [hour, minute, second].map(formatNumber).join(":");
       break;
     case "hh:mm":
-      return [hour, minute].map(formatNumber).join(':');
+      return [hour, minute].map(formatNumber).join(":");
       break;
     case "week":
       var weekDay = "";
@@ -128,28 +129,28 @@ function formatTime(date, format) {
         case 6:
           weekDay = "星期六";
           break;
-
       }
       return weekDay;
       break;
     default:
-      return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':');
+      return (
+        [year, month, day].map(formatNumber).join("-") +
+        " " +
+        [hour, minute, second].map(formatNumber).join(":")
+      );
       break;
   }
-
 }
 
 function addDay(AddDayCount) {
   var dd = new Date();
-  dd.setDate(dd.getDate() + AddDayCount);//获取AddDayCount天后的日期   
+  dd.setDate(dd.getDate() + AddDayCount); //获取AddDayCount天后的日期
   return dd;
-}   
-
-
+}
 
 function formatNumber(n) {
-  n = n.toString()
-  return n[1] ? n : '0' + n
+  n = n.toString();
+  return n[1] ? n : "0" + n;
 }
 
 /**
@@ -159,7 +160,6 @@ function formatToDate(dateString) {
   var timestamp2 = Date.parse(new Date(dateString));
   console.log(dateString + "的时间戳为：" + timestamp2);
   return timestamp2;
-
 }
 
 /**
@@ -170,7 +170,7 @@ function dateIsDifference(startDate, endDate, dateType) {
 
   switch (dateType) {
     case "day":
-    case "d"://同一天
+    case "d": //同一天
       let startDay = formatTime(new Date(startDate), "yyyy-MM-dd");
       let endDay = formatTime(new Date(endDate), "yyyy-MM-dd");
       if (startDay == endDay) {
@@ -179,9 +179,9 @@ function dateIsDifference(startDate, endDate, dateType) {
       } else {
         return false;
         break;
-      };
+      }
     case "month":
-    case "n"://同一月
+    case "n": //同一月
       let startMonth = formatTime(new Date(startDate), "yyyy-MM");
       let endMonth = formatTime(new Date(endDate), "yyyy-MM");
       if (startMonth == endMonth) {
@@ -190,9 +190,9 @@ function dateIsDifference(startDate, endDate, dateType) {
       } else {
         return false;
         break;
-      };
+      }
     case "year":
-    case "y"://同一年
+    case "y": //同一年
       let startYear = formatTime(new Date(startDate), "yyyy");
       let endYear = formatTime(new Date(endDate), "yyyy");
       if (startYear == endYear) {
@@ -201,34 +201,30 @@ function dateIsDifference(startDate, endDate, dateType) {
       } else {
         return false;
         break;
-      };
+      }
     default:
       return false;
-
   }
-
 }
-
 
 /**
  * 求时间差
  */
 function timeDifference(startDate, endDate, dateType) {
-
-  var date3 = new Date(endDate).getTime() - new Date(startDate).getTime();   //时间差的毫秒数
-  //计算出相差天数 
+  var date3 = new Date(endDate).getTime() - new Date(startDate).getTime(); //时间差的毫秒数
+  //计算出相差天数
   var days = Math.floor(date3 / (24 * 3600 * 1000));
   var hours = (date3 / (3600 * 1000)).toFixed(1);
   var minutes = Math.floor(date3 / (60 * 1000));
   var seconds = Math.round(date3 / 1000);
 
-  // var leave1 = date3 % (24 * 3600 * 1000)    //计算天数后剩余的毫秒数  
+  // var leave1 = date3 % (24 * 3600 * 1000)    //计算天数后剩余的毫秒数
   // var hours = Math.floor(leave1 / (3600 * 1000))
-  //计算相差分钟数  
-  // var leave2 = leave1 % (3600 * 1000)        //计算小时数后剩余的毫秒数  
+  //计算相差分钟数
+  // var leave2 = leave1 % (3600 * 1000)        //计算小时数后剩余的毫秒数
   // var minutes = Math.floor(leave2 / (60 * 1000))
-  //计算相差秒数  
-  // var leave3 = leave2 % (60 * 1000)      //计算分钟数后剩余的毫秒数  
+  //计算相差秒数
+  // var leave3 = leave2 % (60 * 1000)      //计算分钟数后剩余的毫秒数
   // var seconds = Math.round(leave3 / 1000)
 
   switch (dateType) {
@@ -245,9 +241,7 @@ function timeDifference(startDate, endDate, dateType) {
       return seconds;
       break;
   }
-
 }
-
 
 function json2Form(json) {
   var str = [];
@@ -267,4 +261,4 @@ module.exports = {
   timeDifference: timeDifference,
   json2Form: json2Form,
   dateIsDifference: dateIsDifference,
-}
+};
